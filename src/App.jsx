@@ -1,7 +1,9 @@
+import Header from "./components/layout/Header";
+
 function App() {
   return (
     <>
-      <h3>GraphQL and hygraph blog-project</h3>
+      <Header />
     </>
   );
 }

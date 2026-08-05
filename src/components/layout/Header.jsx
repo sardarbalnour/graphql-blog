@@ -10,8 +10,7 @@ function Header() {
             <Typography
               component="h1"
               variant="h5"
-              font-weight="bold"
-              sx={{ flexGrow: 1 }}
+              sx={{ flexGrow: 1, fontWeight: "bold" }}
             >
               وبلاگ سردار بال نور
             </Typography>

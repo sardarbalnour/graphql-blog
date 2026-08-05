@@ -1,4 +1,3 @@
-import Blogs from "./components/blog/blogs";
 import HomePage from "./components/home/HomePage";
 import Layout from "./components/layout/Layout";
 
@@ -7,7 +6,6 @@ function App() {
     <>
       <Layout>
         <HomePage />
-        <Blogs />
       </Layout>
     </>
   );

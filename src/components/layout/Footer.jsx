@@ -6,7 +6,7 @@ function Footer() {
       <Typography
         component="p"
         variant="p"
-        // color="primary"
+        color="primary"
         sx={{
           backgroundColor: "#f7f7f7",
           padding: "10px",

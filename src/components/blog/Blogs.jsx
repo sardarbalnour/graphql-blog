@@ -14,7 +14,7 @@ function Blogs() {
   return (
     <Grid container spacing={2}>
       {data.posts.map((post) => (
-        <Grid item size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
+        <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
           <CardEL {...post} />
         </Grid>
       ))}

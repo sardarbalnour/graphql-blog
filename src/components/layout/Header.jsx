@@ -3,8 +3,8 @@ import MenuBookTwoToneIcon from "@mui/icons-material/MenuBookTwoTone";
 
 function Header() {
   return (
-    <div>
-      <AppBar position="sticky">
+    <>
+      <AppBar position="fixed">
         <Container maxWidth="lg">
           <Toolbar>
             <Typography
@@ -18,7 +18,9 @@ function Header() {
           </Toolbar>
         </Container>
       </AppBar>
-    </div>
+      {/* Toolbar below creates spacing so page content isn't hidden behind fixed AppBar */}
+      <Toolbar />
+    </>
   );
 }
 

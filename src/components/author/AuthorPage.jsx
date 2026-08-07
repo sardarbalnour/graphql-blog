@@ -1,8 +1,10 @@
 import { useQuery } from "@apollo/client/react";
 import { useParams } from "react-router-dom";
+import sanitizeHtml from "sanitize-html";
+import { Avatar, Container, Grid, Typography } from "@mui/material";
 
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
-import { Avatar, Container, Grid, Typography } from "@mui/material";
+import CardEL from "../shared/CardEL";
 
 function AuthorPage() {
   const { slug } = useParams();
@@ -15,7 +17,7 @@ function AuthorPage() {
   console.log(data);
 
   const {
-    author: { name, avatar, field, description },
+    author: { name, avatar, field, description, post },
   } = data;
 
   return (
@@ -45,7 +47,27 @@ function AuthorPage() {
             {field}
           </Typography>
         </Grid>
-        <Grid size={12}>{description.html}</Grid>
+        <Grid size={12} sx={{ mt: 5 }}>
+          <div
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(description.html) }}
+          ></div>
+        </Grid>
+        <Grid size={12} sx={{ mt: 6 }}>
+          <Typography component="h3" variant="h5" sx={{ fontWeight: 700 }}>
+            مقالات {name}
+          </Typography>
+          <Grid container spacing={2} sx={{mt:2}}>
+            {post.map((i) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={i.id}>
+                <CardEL
+                  title={i.title}
+                  slug={i.slug}
+                  coverPhoto={i.coverPhoto}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
       </Grid>
     </Container>
   );

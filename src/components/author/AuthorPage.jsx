@@ -5,6 +5,7 @@ import { Avatar, Container, Grid, Typography } from "@mui/material";
 
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
 import CardEL from "../shared/CardEL";
+import Loader from "../shared/Loader";
 
 function AuthorPage() {
   const { slug } = useParams();
@@ -12,7 +13,7 @@ function AuthorPage() {
   const { loading, data, error } = useQuery(GET_AUTHOR_INFO, {
     variables: { slug },
   });
-  if (loading) return <h3>...Loading</h3>;
+  if (loading) return <Loader />;
   if (error) return <h4>Something went wrong! {error.message}</h4>;
   console.log(data);
 
@@ -56,7 +57,7 @@ function AuthorPage() {
           <Typography component="h3" variant="h5" sx={{ fontWeight: 700 }}>
             مقالات {name}
           </Typography>
-          <Grid container spacing={2} sx={{mt:2}}>
+          <Grid container spacing={2} sx={{ mt: 2 }}>
             {post.map((i) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={i.id}>
                 <CardEL

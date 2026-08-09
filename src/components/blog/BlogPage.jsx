@@ -7,6 +7,7 @@ import sanitizeHtml from "sanitize-html";
 import { GET_POST_INFO } from "../../graphql/queries";
 import Loader from "../shared/Loader";
 import CommentForm from "../comment/CommentForm";
+import Comment from "../comment/Comment";
 
 function BlogPage() {
   const { slug } = useParams();
@@ -79,6 +80,9 @@ function BlogPage() {
         </Grid>
         <Grid size={12}>
           <CommentForm slug={slug} />
+        </Grid>
+        <Grid size={12} sx={{ mt: 5 }}>
+          <Comment slug={slug} />
         </Grid>
       </Grid>
     </Container>
